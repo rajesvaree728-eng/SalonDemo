@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GlowUp Salon</title>
+  <style>
+    :root {
+      --primary: #ffb6c1; /* pastel pink */
+      --secondary: #fdf6f0; /* cream background */
+      --text-dark: #333;
+      --accent: #a29bfe; /* lavender accent */
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family: 'Poppins', sans-serif; background: var(--secondary); color: var(--text-dark); }
+
+    header {
+      background: white;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      position: sticky; top:0; z-index:1000;
+    }
+    header h1 { color: var(--primary); font-weight: 600; }
+
+    nav { margin-top: 10px; }
+    nav a {
+      margin: 0 15px; text-decoration: none;
+      color: var(--text-dark); font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav a:hover { color: var(--accent); }
+
+    .hero {
+      background: url('salon.jpg') center/cover no-repeat;
+      height: 70vh; display:flex; align-items:center; justify-content:center;
+      color: white; text-align:center; position:relative;
+    }
+    .hero::after {
+      content:""; position:absolute; top:0; left:0; right:0; bottom:0;
+      background: rgba(0,0,0,0.3);
+    }
+    .hero-content { position:relative; z-index:1; animation: fadeIn 2s ease; }
+    .hero h2 { font-size: 48px; margin-bottom: 10px; }
+    .hero button {
+      background: var(--primary); border:none; padding:12px 24px;
+      border-radius: 30px; font-size:16px; cursor:pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .hero button:hover { background: var(--accent); transform: scale(1.05); }
+
+    section { padding: 60px 20px; text-align:center; }
+    h2 { color: var(--accent); margin-bottom: 20px; font-weight:600; }
+
+    .services { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; }
+    .service {
+      background:white; border-radius:12px; padding:20px; width:250px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.05);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .service:hover { transform: translateY(-6px); box-shadow:0 8px 20px rgba(0,0,0,0.1); }
+
+    .gallery { display:flex; flex-wrap:wrap; justify-content:center; gap:15px; }
+    .gallery img {
+      width:220px; border-radius:12px; transition: transform 0.3s;
+    }
+    .gallery img:hover { transform: scale(1.05); }
+
+    form input, form textarea {
+      width:80%; padding:12px; margin:10px 0;
+      border:1px solid #ddd; border-radius:8px;
+    }
+    form button {
+      background: var(--accent); color:white; border:none;
+      padding:12px 24px; border-radius:30px; cursor:pointer;
+      transition: background 0.3s;
+    }
+    form button:hover { background: var(--primary); }
+
+    footer {
+      background:white; color:#777; text-align:center; padding:20px;
+      border-top:1px solid #eee;
+    }
+
+    @keyframes fadeIn {
+      from { opacity:0; transform: translateY(20px); }
+      to { opacity:1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>GlowUp Salon</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Be Bold. Be Beautiful.</h2>
+      <p>Trendy Styles • Bridal Glam • Everyday Glow</p>
+      <button onclick="alert('Demo booking!')">Book Now</button>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <p>GlowUp Salon brings modern beauty trends to your city. From chic haircuts to bridal elegance, we make sure you shine at every occasion.</p>
+  </section>
+
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="services">
+      <div class="service"><h3>Hair Styling</h3><p>₹250 onwards</p></div>
+      <div class="service"><h3>Bridal Makeup</h3><p>₹6000 onwards</p></div>
+      <div class="service"><h3>Nail Art</h3><p>₹800 onwards</p></div>
+      <div class="service"><h3>Facials</h3><p>₹1000 onwards</p></div>
+      <div class="service"><h3>Mehendi</h3><p>₹1200 onwards</p></div>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery">
+      <img src="bride.jpg" alt="Bridal Look">
+      <img src="hair.jpg" alt="Haircut">
+      <img src="nail.jpg" alt="Nail Art">
+      <img src="facial care.jpg" alt="Facial">
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>📞 +91 98765 43210</p>
+    <p>📍 Bhusawal, Maharashtra</p>
+    <p><a href="https://wa.me/919876543210" target="_blank">Chat on WhatsApp</a></p>
+    <form onsubmit="event.preventDefault(); alert('Form submitted demo!');">
+      <input type="text" placeholder="Your Name" required><br>
+      <input type="tel" placeholder="Phone Number" required><br>
+      <textarea placeholder="Service Interested"></textarea><br>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2026 GlowUp Salon | Designed for Modern Indian Clients</p>
+  </footer>
+
+</body>
+</html>
